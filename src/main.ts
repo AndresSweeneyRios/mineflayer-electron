@@ -25,7 +25,6 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`));
   }
 
-  // Open the DevTools.
   mainWindow.setMenu(null)
   
   // Register a global shortcut listener for DevTools
@@ -64,3 +63,5 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+import './ipc'
