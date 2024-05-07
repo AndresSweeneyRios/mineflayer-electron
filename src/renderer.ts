@@ -1,11 +1,12 @@
+import "./global.d.ts"
 import './index.css'
 
-import * as mineflayer from 'mineflayer'
+import { IpcLog__ToClient, IpcLog__ToClient__Payload } from './ipc-types'
 
-const bot = mineflayer.createBot({
-  host: 'localhost',
-  port: 25565,
-  username: 'bot'
+window.electronAPI.on(IpcLog__ToClient, (data: IpcLog__ToClient__Payload) => {
+  if (data.type === 'info') {
+    console.info(data.message)
+  } else if (data.type === 'error'){
+    console.error(data.message)
+  }
 })
-
-console.log(bot)
