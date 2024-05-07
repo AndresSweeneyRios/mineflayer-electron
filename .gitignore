@@ -1,2 +1,59 @@
 node_modules
 dist
+
+# Directory for player data, world saves, etc.
+/server/world/
+/server/world_nether/
+/server/world_the_end/
+/server/logs/
+/server/crash-reports/
+/server/dumps/
+/server/versions/
+/server/libraries/
+
+# Various configuration files
+/server/banned-ips.json
+/server/banned-players.json
+/server/ops.json
+/server/whitelist.json
+/server/usercache.json
+
+# Exclude cache and temporary files
+cache/
+tmp/
+*.log
+*.tmp
+*.lck
+*.bak
+*.swp
+*.lock
+
+# System specific files
+.DS_Store
+Thumbs.db
+
+# Virtual environment (for any Python tools or scripts)
+venv/
+env/
+
+# Ignore Eclipse project files (if using Eclipse)
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA project files (if using IntelliJ)
+.idea/
+*.iml
+*.iws
+
+# VSCode settings (if using Visual Studio Code)
+.vscode/
+
+# Operating system generated files
+$RECYCLE.BIN/
+SystemVolumeInformation/
+hiberfil.sys
+pagefile.sys
+swapfile.sys
+
+*.js
