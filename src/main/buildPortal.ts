@@ -1,4 +1,4 @@
-import { bot } from "./_index";
+import { bot } from "./index";
 
 import { mainWindow } from '../main';
 import { Vec3 } from 'vec3';

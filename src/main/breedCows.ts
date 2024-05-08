@@ -1,4 +1,4 @@
-import { bot } from "./_index";
+import { bot } from "./index";
 
 import { mainWindow } from '../main';
 import { IpcLog__ToClient, IpcLog__ToClient__Payload } from "../ipc-types";

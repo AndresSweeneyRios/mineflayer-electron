@@ -1,5 +1,5 @@
 import { Movements, goals } from "mineflayer-pathfinder";
-import { bot } from "./_index";
+import { bot } from "./index";
 
 import { Entity } from 'prismarine-entity';
 import { mainWindow } from "../main";
@@ -30,7 +30,8 @@ export const killSomething = () => {
 
   const entity = Object.values(bot.entities)
   .filter((entity) => {
-    return entity.type === 'mob';
+    console.log(entity.type)
+    return entity.type === 'mob' || entity.type === 'animal' as unknown || entity.type === 'hostile' as unknown;
   })
   .sort((a, b) => {
     return a.position.distanceTo(bot.entity.position) - b.position.distanceTo(bot.entity.position);

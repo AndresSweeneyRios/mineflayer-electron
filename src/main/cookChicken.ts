@@ -1,4 +1,4 @@
-import { bot } from "./_index";
+import { bot } from "./index";
 
 import { mainWindow } from '../main';
 import { Vec3 } from 'vec3';
@@ -115,7 +115,7 @@ export const cookChicken = async () => {
     // so we just have to use the closest one here
 
     // The types are out of date, so we have to use a type assertion
-    return entity.type === 'animal' as unknown;
+    return entity.type === 'mob' || entity.type === 'animal' as unknown;
   }).sort((a, b) => {
     return a.position.distanceTo(bot.entity.position) - b.position.distanceTo(bot.entity.position);
   })

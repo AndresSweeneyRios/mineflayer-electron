@@ -15,7 +15,6 @@ import {
   IpcTeleportToPlayer__ToMain,
 } from '../ipc-types'
 
-
 // log handler
 window.electronAPI.on(IpcLog__ToClient, (data: IpcLog__ToClient__Payload) => {
   if (data.type === 'info') {
@@ -25,51 +24,38 @@ window.electronAPI.on(IpcLog__ToClient, (data: IpcLog__ToClient__Payload) => {
   }
 })
 
+const createButton = (text: string, onClick: () => void) => {
+  const buttonElement = document.createElement('button')
+  buttonElement.innerText = text
+  document.body.appendChild(buttonElement)
+
+  buttonElement.onclick = onClick
+}
 
 // start mining
-const mineButtonElement = document.createElement('button')
-mineButtonElement.innerText = 'Start Mining 10x10x10 space'
-document.body.appendChild(mineButtonElement)
-
-mineButtonElement.onclick = () => {
+createButton('Start Mining 10x10x10 space', () => {
   window.electronAPI.send(IpcStartMining__ToMain, null)
-}
+})
 
 // kill something
-const killButtonElement = document.createElement('button')
-killButtonElement.innerText = 'Kill something'
-document.body.appendChild(killButtonElement)
-
-killButtonElement.onclick = () => {
+createButton('Kill something', () => {
   window.electronAPI.send(IpcKillSomething__ToMain, null)
-}
+})
 
 // build nether portal
-const buildNetherPortalButtonElement = document.createElement('button')
-buildNetherPortalButtonElement.innerText = 'Build Nether Portal'
-document.body.appendChild(buildNetherPortalButtonElement)
-
-buildNetherPortalButtonElement.onclick = () => {
+createButton('Build Nether Portal', () => {
   window.electronAPI.send(IpcBuildNetherPortal__ToMain, null)
-}
+})
 
 // cook chicken
-const cookChickenButtonElement = document.createElement('button')
-cookChickenButtonElement.innerText = 'Cook Chicken'
-document.body.appendChild(cookChickenButtonElement)
-
-cookChickenButtonElement.onclick = () => {
+createButton('Cook Chicken', () => {
   window.electronAPI.send(IpcCookChicken__ToMain, null)
-}
+})
 
 // breed cows
-const breedCowsButtonElement = document.createElement('button')
-breedCowsButtonElement.innerText = 'Breed Cows'
-document.body.appendChild(breedCowsButtonElement)
-
-breedCowsButtonElement.onclick = () => {
+createButton('Breed Cows', () => {
   window.electronAPI.send(IpcBreedCows__ToMain, null)
-}
+})
 
 // teleport
 const teleport = (username: string) => {
@@ -77,7 +63,6 @@ const teleport = (username: string) => {
 
   window.electronAPI.send(IpcTeleportToPlayer__ToMain, payload)
 }
-
 
 // player list
 const playerList: string[] = []

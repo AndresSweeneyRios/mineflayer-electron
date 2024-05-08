@@ -1,4 +1,4 @@
-import { bot } from "./_index";
+import { bot } from "./index";
 
 export const teleport = (username: string) => {
   console.log(`Teleporting to ${username}`)
