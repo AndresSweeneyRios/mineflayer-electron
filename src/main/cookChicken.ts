@@ -7,6 +7,8 @@ import { attackRecursively } from "./killSomething";
 import { goals } from "mineflayer-pathfinder";
 
 export const cookChicken = async () => {
+  bot.chat('Time for some chicken!!');
+
   // First, let's cheat in a furnace
   bot.chat('/give @s furnace');
 
@@ -36,7 +38,7 @@ export const cookChicken = async () => {
   // get a list of blocks in a 30x30x30 cube centered on the bot
   const blocks = bot.findBlocks({
     matching: (block) => {
-      return block.name === 'air' || block.name === 'short_grass'
+      return block.name === 'air' || block.name === 'short_grass' || block.name === 'tall_grass'
     },
     maxDistance: 30,
     count: 1000,
@@ -136,6 +138,8 @@ export const cookChicken = async () => {
   // kill chicken
   console.log('Killing chicken');
   
+  bot.chat('Out on the hunt...')
+
   const chickenEntity = chickenEntities[0]
   attackRecursively(chickenEntity);
 

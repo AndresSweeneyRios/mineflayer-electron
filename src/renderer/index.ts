@@ -15,12 +15,27 @@ import {
   IpcTeleportToPlayer__ToMain,
 } from '../ipc-types'
 
+const logElement = document.createElement('div')
+logElement.id = 'log'
+document.body.appendChild(logElement)
+
 // log handler
 window.electronAPI.on(IpcLog__ToClient, (data: IpcLog__ToClient__Payload) => {
   if (data.type === 'info') {
     console.info(data.message)
+
+    const logItem = document.createElement('p')
+    logItem.innerText = data.message
+    logElement.appendChild(logItem)
+    logItem.scrollIntoView()
   } else if (data.type === 'error'){
     console.error(data.message)
+
+    const logItem = document.createElement('p')
+    logItem.innerText = '[ERROR] ' + data.message
+    logItem.style.color = 'red'
+    logElement.appendChild(logItem)
+    logItem.scrollIntoView()
   }
 })
 
@@ -32,27 +47,22 @@ const createButton = (text: string, onClick: () => void) => {
   buttonElement.onclick = onClick
 }
 
-// start mining
 createButton('Start Mining 10x10x10 space', () => {
   window.electronAPI.send(IpcStartMining__ToMain, null)
 })
 
-// kill something
 createButton('Kill something', () => {
   window.electronAPI.send(IpcKillSomething__ToMain, null)
 })
 
-// build nether portal
 createButton('Build Nether Portal', () => {
   window.electronAPI.send(IpcBuildNetherPortal__ToMain, null)
 })
 
-// cook chicken
 createButton('Cook Chicken', () => {
   window.electronAPI.send(IpcCookChicken__ToMain, null)
 })
 
-// breed cows
 createButton('Breed Cows', () => {
   window.electronAPI.send(IpcBreedCows__ToMain, null)
 })
