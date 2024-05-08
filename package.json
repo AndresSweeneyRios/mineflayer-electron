@@ -34,6 +34,7 @@
   "keywords": [],
   "dependencies": {
     "electron-squirrel-startup": "^1.0.0",
-    "mineflayer": "^4.20.1"
+    "mineflayer": "^4.20.1",
+    "mineflayer-pathfinder": "^2.4.5"
   }
 }
